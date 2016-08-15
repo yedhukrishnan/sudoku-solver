@@ -29,8 +29,32 @@ RSpec.describe Sudoku do
       expect(@sudoku.puzzle[position]).to equal value
     end
 
-    it "does not modify initial puzzle" do
+    it "does not modify the initial puzzle" do
       expect(@sudoku.initial_puzzle).to equal initial_puzzle
+    end
+
+    context "when the given position value is already given for the puzzle" do
+      let(:already_given_position) { [0, 0] }
+
+      before(:example) do
+        @sudoku.update_position(already_given_position, value)
+      end
+
+      it "does not update the position" do
+        expect(@sudoku.puzzle[already_given_position]).not_to equal value
+      end
+    end
+  end
+
+  xdescribe "possible values" do
+    before(:example) do
+      @sudoku.update_position([0, 1], 1)
+      @sudoku.update_position([2, 2], 4)
+      @sudoku.update_position([0, 6], 6)
+    end
+
+    it "gives the list of possible values for that position" do
+      expect(@sudoku.possible_values([0, 2])).to equal [0, 2, 5, 7, 8, 9]
     end
   end
 

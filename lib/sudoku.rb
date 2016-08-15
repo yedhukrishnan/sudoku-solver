@@ -8,6 +8,6 @@ class Sudoku
   end
 
   def update_position position, value
-    @puzzle[position] = value
+    @puzzle[position] = value if @initial_puzzle[position].nil?
   end
 end
