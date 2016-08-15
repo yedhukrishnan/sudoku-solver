@@ -8,7 +8,9 @@ class Sudoku
   end
 
   def update_position position, value
-    @puzzle[position] = value if @initial_puzzle[position].nil?
+    if @initial_puzzle[position].nil? && possible_values(position).include?(value)
+      @puzzle[position] = value
+    end
   end
 
   def possible_values position

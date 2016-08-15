@@ -44,6 +44,16 @@ RSpec.describe Sudoku do
         expect(@sudoku.puzzle[already_given_position]).not_to eq value
       end
     end
+
+    context "when the given value is already present in row, column or group" do
+      before(:example) do
+        @sudoku.update_position([3, 5], 6)
+      end
+
+      it "does not update the position" do
+        expect(@sudoku.puzzle[[3, 5]]).to eq nil
+      end
+    end
   end
 
   describe "possible values" do
