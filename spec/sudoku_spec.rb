@@ -9,11 +9,11 @@ RSpec.describe Sudoku do
 
   describe "initialize" do
     it "creates a sudoku with initial puzzle" do
-      expect(@sudoku.puzzle).to equal initial_puzzle
+      expect(@sudoku.puzzle).to eq initial_puzzle
     end
 
     it "keeps the initial puzzle for future reference" do
-      expect(@sudoku.initial_puzzle).to equal initial_puzzle
+      expect(@sudoku.initial_puzzle).to eq initial_puzzle
     end
   end
 
@@ -26,11 +26,11 @@ RSpec.describe Sudoku do
     end
 
     it "updates the position with given value" do
-      expect(@sudoku.puzzle[position]).to equal value
+      expect(@sudoku.puzzle[position]).to eq value
     end
 
     it "does not modify the initial puzzle" do
-      expect(@sudoku.initial_puzzle).to equal initial_puzzle
+      expect(@sudoku.initial_puzzle).to eq initial_puzzle
     end
 
     context "when the given position value is already given for the puzzle" do
@@ -41,12 +41,12 @@ RSpec.describe Sudoku do
       end
 
       it "does not update the position" do
-        expect(@sudoku.puzzle[already_given_position]).not_to equal value
+        expect(@sudoku.puzzle[already_given_position]).not_to eq value
       end
     end
   end
 
-  xdescribe "possible values" do
+  describe "possible values" do
     before(:example) do
       @sudoku.update_position([0, 1], 1)
       @sudoku.update_position([2, 2], 4)
@@ -54,7 +54,7 @@ RSpec.describe Sudoku do
     end
 
     it "gives the list of possible values for that position" do
-      expect(@sudoku.possible_values([0, 2])).to equal [0, 2, 5, 7, 8, 9]
+      expect(@sudoku.possible_values([0, 2])).to eq [2, 5, 7, 8, 9]
     end
   end
 
