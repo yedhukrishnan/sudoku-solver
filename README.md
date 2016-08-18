@@ -2,7 +2,7 @@
 
 A sudoku solver in Ruby.
 
-### TODO List
+### TODO
 
  - [x] Create `Sudoku` representation
  - [x] Get user input and convert it into the internal representation
