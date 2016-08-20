@@ -1,4 +1,4 @@
-require './lib/sudoku'
+require './sudoku'
 
 class SudokuInputReader
   def create_sudoku
