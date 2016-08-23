@@ -10,3 +10,4 @@ A sudoku solver in Ruby.
    - [x] Fill in possible values
    - [ ] Find alternative if possible value list is longer than one
  - [ ] Pretty printer for Sudoku
+ - [ ] Build a UI for interactions
